@@ -1,0 +1,235 @@
+:root {
+  --bg: #05070d;
+  --panel: #0f1117;
+  --panel2: #161922;
+  --border: #1f2430;
+  --text: #f8fafc;
+  --muted: #94a3b8;
+  --accent: #22d3ee;
+  --accent-dark: #0e7490;
+  --warn: #f59e0b;
+  --danger: #f87171;
+}
+*
+{
+  box-sizing: border-box;
+}
+html,
+body,
+#root {
+  height: 100%;
+}
+body {
+  margin: 0;
+  background: radial-gradient(circle at top right, rgba(14, 165, 233, 0.15), transparent 40%), var(--bg);
+  color: var(--text);
+  font: 14px/1.5 "Inter", "Segoe UI", Roboto, system-ui, sans-serif;
+}
+a {
+  color: #67e8f9;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+.app {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  min-height: 100vh;
+}
+.sidebar {
+  background: var(--panel);
+  border-right: 1px solid var(--border);
+  padding: 18px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.logo {
+  width: 32px;
+  height: 32px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #bef264, #22d3ee);
+}
+.brand h1 {
+  font-size: 14px;
+  margin: 0;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.nav {
+  display: grid;
+  gap: 10px;
+}
+.nav button {
+  width: 100%;
+  text-align: left;
+  background: var(--panel2);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 12px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.nav button:hover {
+  border-color: var(--accent);
+}
+.nav button.active {
+  background: rgba(34, 211, 238, 0.15);
+  border-color: var(--accent);
+  color: #bff3ff;
+}
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: rgba(5, 7, 13, 0.75);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  backdrop-filter: blur(12px);
+}
+.container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.25);
+}
+.grid2 {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.grid3 {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.table th,
+.table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+.table th {
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+.table input,
+.table select,
+.input,
+.select,
+.textarea {
+  width: 100%;
+  background: var(--panel2);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 8px 10px;
+}
+.textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+.btn {
+  background: var(--accent);
+  color: #022c22;
+  border: 0;
+  padding: 10px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: filter 0.15s ease;
+}
+.btn:hover {
+  filter: brightness(1.05);
+}
+.btn.secondary {
+  background: var(--panel2);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+.btn.secondary:hover {
+  border-color: var(--accent-dark);
+}
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(148, 163, 184, 0.1);
+  color: var(--muted);
+}
+.small {
+  font-size: 12px;
+  color: var(--muted);
+}
+.mono {
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+.kpi {
+  width: 100%;
+  height: 10px;
+  background: #1f2937;
+  border-radius: 999px;
+  overflow: hidden;
+}
+.kpi span {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+}
+.footer {
+  padding: 12px 20px 20px;
+  text-align: right;
+  color: #64748b;
+  font-size: 12px;
+}
+.right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+textarea:focus,
+input:focus,
+select:focus,
+button:focus {
+  outline: 2px solid var(--accent-dark);
+  outline-offset: 2px;
+}
+@media (max-width: 960px) {
+  .app {
+    grid-template-columns: 1fr;
+  }
+  .sidebar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+}
